@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "project": "BuildConnect Pilot",
+    "hotline": "090 123 4567",
+    "bankAccount": "BUILDCONNECT PILOT - 0123456789",
+    "updatedAt": "2026-06-30T15:06:07.641Z"
+  },
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "Super Admin",
+      "email": "admin@buildconnect.vn",
+      "role": "super_admin",
+      "password": "admin123"
+    },
+    {
+      "id": "usr_operator",
+      "name": "Admin vận hành",
+      "email": "operator@buildconnect.vn",
+      "role": "operator",
+      "password": "operator123"
+    },
+    {
+      "id": "usr_company",
+      "name": "Công ty CP Xây dựng Miền Trung",
+      "email": "company@example.com",
+      "role": "company",
+      "password": "company123"
+    },
+    {
+      "id": "usr_candidate",
+      "name": "Nguyễn Văn An",
+      "email": "candidate@example.com",
+      "role": "candidate",
+      "password": "candidate123"
+    }
+  ],
+  "plans": [
+    {
+      "id": "plan_job_basic",
+      "name": "Đăng yêu cầu tuyển dụng tiêu chuẩn",
+      "audience": "company",
+      "price": 30000,
+      "unit": "bài đăng",
+      "description": "Đăng 01 yêu cầu tuyển dụng trong 30 ngày, admin kiểm duyệt trước khi hiển thị."
+    },
+    {
+      "id": "plan_job_priority",
+      "name": "Đăng yêu cầu tuyển dụng ưu tiên",
+      "audience": "company",
+      "price": 49000,
+      "unit": "bài đăng",
+      "description": "Đăng 01 yêu cầu tuyển dụng trong 30 ngày, ưu tiên hiển thị trong danh sách việc làm."
+    },
+    {
+      "id": "plan_candidate_vip",
+      "name": "Ứng viên VIP",
+      "audience": "candidate",
+      "price": 49000,
+      "unit": "tháng",
+      "description": "Tăng hiển thị hồ sơ và nhận gợi ý việc làm phù hợp."
+    }
+  ],
+  "serviceCommitments": [
+    {
+      "id": "svc_job_post",
+      "title": "Cam kết dịch vụ đăng yêu cầu tuyển dụng",
+      "version": "PILOT-2026-01",
+      "items": [
+        "BuildConnect tiếp nhận 01 yêu cầu tuyển dụng sau khi ghi nhận thanh toán.",
+        "Tin tuyển dụng được kiểm tra thông tin cơ bản trước khi hiển thị công khai.",
+        "Thời hạn hiển thị mặc định là 30 ngày kể từ ngày được duyệt.",
+        "Doanh nghiệp chịu trách nhiệm về tính chính xác của thông tin tuyển dụng.",
+        "BuildConnect có quyền từ chối hoặc tạm ẩn tin vi phạm pháp luật, sai sự thật, hoặc không liên quan đến lĩnh vực xây dựng.",
+        "Giai đoạn Pilot sử dụng xác nhận thanh toán thủ công bởi Super Admin."
+      ]
+    }
+  ],
+  "companies": [
+    {
+      "id": "cmp_mr0s4eahxs8xl",
+      "userId": null,
+      "name": "C�ng ty Test Pilot",
+      "taxCode": "040TEST",
+      "contactName": "Anh Test",
+      "phone": "0909999999",
+      "email": "test@company.vn",
+      "address": "D� N?ng",
+      "status": "pending_review"
+    },
+    {
+      "id": "cmp_001",
+      "userId": "usr_company",
+      "name": "Công ty CP Xây dựng Miền Trung",
+      "taxCode": "0400000001",
+      "contactName": "Anh Minh",
+      "phone": "090 222 3333",
+      "email": "company@example.com",
+      "address": "Hải Châu, Đà Nẵng",
+      "status": "verified"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "can_001",
+      "userId": "usr_candidate",
+      "name": "Nguyễn Văn An",
+      "phone": "091 555 6677",
+      "email": "candidate@example.com",
+      "desiredRole": "Kỹ sư hiện trường",
+      "skills": "AutoCAD, giám sát thi công, bóc tách khối lượng",
+      "salaryExpectation": "15-20 triệu",
+      "status": "ready"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job_mr0s4eahwz4gt",
+      "companyId": "cmp_mr0s4eahxs8xl",
+      "title": "K? su QS Pilot",
+      "location": "D� N?ng",
+      "category": "D? to�n QS",
+      "salary": "18-25 tri?u",
+      "description": "Tin ki?m th? lu?ng Pilot",
+      "status": "published",
+      "paymentId": "pay_mr0s4eah537fn",
+      "createdAt": "2026-06-30T15:06:07.577Z"
+    },
+    {
+      "id": "job_001",
+      "companyId": "cmp_001",
+      "title": "Kỹ sư hiện trường",
+      "location": "Đà Nẵng",
+      "category": "Kỹ thuật hiện trường",
+      "salary": "15-22 triệu",
+      "description": "Theo dõi tiến độ, kiểm tra khối lượng và phối hợp đội thi công tại công trường.",
+      "status": "published",
+      "paymentId": "pay_001",
+      "createdAt": "2026-06-30T00:00:00.000Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_mr0s4eah537fn",
+      "code": "PAY-2026-000002",
+      "planId": "plan_job_basic",
+      "amount": 30000,
+      "customerName": "C�ng ty Test Pilot",
+      "relatedType": "job",
+      "relatedId": "job_mr0s4eahwz4gt",
+      "status": "confirmed",
+      "createdAt": "2026-06-30T15:06:07.577Z",
+      "confirmedAt": "2026-06-30T15:06:07.625Z"
+    },
+    {
+      "id": "pay_001",
+      "code": "PAY-2026-000001",
+      "planId": "plan_job_basic",
+      "amount": 30000,
+      "customerName": "Công ty CP Xây dựng Miền Trung",
+      "relatedType": "job",
+      "relatedId": "job_001",
+      "status": "confirmed",
+      "createdAt": "2026-06-30T00:00:00.000Z",
+      "confirmedAt": "2026-06-30T00:00:00.000Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "app_001",
+      "jobId": "job_001",
+      "candidateId": "can_001",
+      "status": "submitted",
+      "createdAt": "2026-06-30T00:00:00.000Z"
+    }
+  ],
+  "adminLogs": [
+    {
+      "id": "log_mr0s4ec9euu9g",
+      "actor": "Admin v?n h�nh",
+      "action": "Duyệt đăng tin K? su QS Pilot",
+      "createdAt": "2026-06-30T15:06:07.641Z"
+    },
+    {
+      "id": "log_mr0s4ebtp1kkv",
+      "actor": "Super Admin",
+      "action": "Xác nhận thanh toán PAY-2026-000002",
+      "createdAt": "2026-06-30T15:06:07.625Z"
+    },
+    {
+      "id": "log_mr0s4eahibsop",
+      "actor": "Super Admin",
+      "action": "Tạo yêu cầu đăng tin K? su QS Pilot với mã PAY-2026-000002",
+      "createdAt": "2026-06-30T15:06:07.577Z"
+    },
+    {
+      "id": "log_001",
+      "actor": "Super Admin",
+      "action": "Khởi tạo dữ liệu Pilot",
+      "createdAt": "2026-06-30T00:00:00.000Z"
+    }
+  ]
+}

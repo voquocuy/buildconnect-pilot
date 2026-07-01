@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BuildConnect Pilot</title>
+    <meta name="description" content="Bản Pilot BuildConnect Đà Nẵng có backend, database thử nghiệm, CRM và thanh toán thủ công.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home">
+        <span class="brand-mark">BC</span>
+        <span>
+          <strong>BuildConnect Pilot</strong>
+          <small>Việc làm xây dựng Đà Nẵng</small>
+        </span>
+      </a>
+      <nav class="nav" data-nav>
+        <a href="#jobs">Việc làm</a>
+        <a href="#candidate">Ứng viên</a>
+        <a href="#post">Đăng yêu cầu</a>
+        <a href="#payment">Thanh toán</a>
+        <a href="#admin">Admin/CRM</a>
+      </nav>
+      <button class="menu-button" type="button" data-menu>☰</button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <img src="assets/hero-construction.png" alt="Đội ngũ xây dựng tại công trường">
+        <div class="hero-copy">
+          <p class="eyebrow">Bản Pilot gần thật</p>
+          <h1>BuildConnect Đà Nẵng</h1>
+          <p class="lead">Hệ thống thử nghiệm có lưu dữ liệu, quản lý yêu cầu đăng tuyển theo phí từng bài, cam kết dịch vụ và CRM xác nhận thanh toán thủ công.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#post">Tạo yêu cầu đăng tin</a>
+            <a class="button ghost" href="#admin">Vào CRM</a>
+          </div>
+          <div class="login-card">
+            <div>
+              <strong data-current-user>Chưa đăng nhập</strong>
+              <span data-current-role>Chọn tài khoản demo để xem đúng vai trò.</span>
+            </div>
+            <form data-login-form>
+              <select name="account" aria-label="Tài khoản demo">
+                <option value="admin@buildconnect.vn|admin123">Super Admin</option>
+                <option value="operator@buildconnect.vn|operator123">Admin vận hành</option>
+                <option value="company@example.com|company123">Doanh nghiệp demo</option>
+                <option value="candidate@example.com|candidate123">Ứng viên demo</option>
+              </select>
+              <button class="button secondary" type="submit">Đăng nhập demo</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-band">
+        <article class="stat">
+          <span>Việc đang hiển thị</span>
+          <strong data-stat-published>0</strong>
+        </article>
+        <article class="stat">
+          <span>Yêu cầu chờ thanh toán</span>
+          <strong data-stat-pending-pay>0</strong>
+        </article>
+        <article class="stat">
+          <span>Chờ duyệt</span>
+          <strong data-stat-review>0</strong>
+        </article>
+        <article class="stat">
+          <span>Hotline</span>
+          <strong data-hotline>090 123 4567</strong>
+        </article>
+      </section>
+
+      <section id="jobs" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Trang công khai</p>
+          <h2>Việc làm đang tuyển</h2>
+          <p>Ứng viên chỉ thấy các tin đã được thanh toán và admin duyệt đăng.</p>
+        </div>
+        <div class="job-list" data-jobs></div>
+      </section>
+
+      <section id="candidate" class="section split">
+        <div>
+          <p class="eyebrow">Ứng viên</p>
+          <h2>Tạo hồ sơ thử nghiệm</h2>
+          <p>Hồ sơ được lưu vào database Pilot để admin thấy trong CRM. Sau này phần này sẽ nâng cấp thành tài khoản ứng viên đầy đủ, có tải CV PDF.</p>
+          <div class="info-box">
+            <strong>Trạng thái hồ sơ</strong>
+            <span>ready: sẵn sàng kết nối doanh nghiệp.</span>
+          </div>
+        </div>
+        <form class="panel" data-candidate-form>
+          <label>Họ tên <input required name="name" placeholder="Nguyễn Văn An"></label>
+          <label>Số điện thoại <input required name="phone" placeholder="091 234 5678"></label>
+          <label>Email <input required name="email" type="email" placeholder="ungvien@example.com"></label>
+          <label>Vị trí mong muốn <input required name="desiredRole" placeholder="Kỹ sư hiện trường"></label>
+          <label>Kỹ năng <textarea name="skills" placeholder="AutoCAD, Revit, QS, MEP..."></textarea></label>
+          <label>Lương kỳ vọng <input name="salaryExpectation" placeholder="15-20 triệu"></label>
+          <button class="button primary" type="submit">Lưu hồ sơ</button>
+          <p class="note" data-candidate-note>Chưa gửi hồ sơ mới.</p>
+        </form>
+      </section>
+
+      <section id="post" class="section split muted">
+        <form class="panel" data-job-form>
+          <h2>Đăng yêu cầu tuyển dụng</h2>
+          <label>Công ty <input required name="companyName" placeholder="Công ty CP Xây dựng..."></label>
+          <label>Mã số thuế <input name="taxCode" placeholder="040..."></label>
+          <label>Người liên hệ <input required name="contactName" placeholder="Anh/Chị..."></label>
+          <label>Điện thoại <input required name="phone" placeholder="090..."></label>
+          <label>Email <input required name="email" type="email" placeholder="hr@company.vn"></label>
+          <label>Địa chỉ <input name="address" placeholder="Đà Nẵng"></label>
+          <label>Vị trí tuyển <input required name="title" placeholder="Chỉ huy trưởng công trình"></label>
+          <label>Khu vực <input required name="location" placeholder="Đà Nẵng"></label>
+          <label>Nhóm nghề
+            <select name="category">
+              <option>Kỹ thuật hiện trường</option>
+              <option>Dự toán QS</option>
+              <option>MEP</option>
+              <option>Thiết kế BIM</option>
+              <option>An toàn lao động</option>
+            </select>
+          </label>
+          <label>Lương <input name="salary" placeholder="20-30 triệu"></label>
+          <label>Mô tả <textarea required name="description" placeholder="Mô tả công việc, yêu cầu, quyền lợi..."></textarea></label>
+          <label>Gói phí
+            <select name="planId" data-plan-select></select>
+          </label>
+          <label class="checkbox">
+            <input required name="commitment" type="checkbox">
+            <span>Tôi đã đọc và đồng ý cam kết dịch vụ / hợp đồng điện tử Pilot.</span>
+          </label>
+          <button class="button primary" type="submit">Tạo mã thanh toán</button>
+          <p class="note" data-job-note>Yêu cầu sẽ chờ thanh toán trước khi admin duyệt.</p>
+        </form>
+
+        <div>
+          <p class="eyebrow">Cam kết dịch vụ</p>
+          <h2>Hợp đồng điện tử dạng Pilot</h2>
+          <div class="commitment" data-commitment></div>
+          <div class="info-box">
+            <strong>Nguyên tắc phí</strong>
+            <span>Tính phí theo từng bài đăng yêu cầu. Giai đoạn Pilot xác nhận thanh toán thủ công bởi Super Admin.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="payment" class="section split">
+        <div>
+          <p class="eyebrow">Thanh toán Pilot</p>
+          <h2>QR/chuyển khoản thủ công</h2>
+          <p>Doanh nghiệp chuyển khoản đúng mã giao dịch. Admin kiểm tra app ngân hàng rồi bấm xác nhận trong CRM.</p>
+          <div class="payment-card">
+            <div class="qr" aria-label="QR thanh toán mô phỏng"><span></span><span></span><span></span><span></span></div>
+            <div>
+              <span>Mã gần nhất</span>
+              <strong data-last-payment-code>Chưa có</strong>
+              <p data-last-payment-detail>Tạo yêu cầu đăng tin để sinh mã thanh toán.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Thông tin chuyển khoản</h3>
+          <p><strong>Tài khoản:</strong> <span data-bank-account>BUILDCONNECT PILOT - 0123456789</span></p>
+          <p><strong>Nội dung:</strong> Ghi đúng mã thanh toán, ví dụ <code>PAY-2026-000002</code>.</p>
+          <p><strong>Hotline hỗ trợ:</strong> <span data-hotline-2>090 123 4567</span></p>
+        </div>
+      </section>
+
+      <section id="admin" class="section crm">
+        <div class="section-head">
+          <p class="eyebrow">Admin / CRM</p>
+          <h2>Bảng vận hành Pilot</h2>
+          <p>Super Admin xác nhận thanh toán, admin vận hành duyệt/từ chối tin. Mọi thao tác được ghi nhật ký.</p>
+        </div>
+        <div class="admin-grid">
+          <div class="panel">
+            <h3>Giao dịch</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mã</th>
+                    <th>Khách hàng</th>
+                    <th>Số tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody data-payments></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Yêu cầu đăng tin</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Vị trí</th>
+                    <th>Doanh nghiệp</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody data-admin-jobs></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel logs">
+          <h3>Nhật ký admin</h3>
+          <ul data-logs></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <strong>BuildConnect Pilot</strong>
+      <span>Bản chạy thử local có lưu dữ liệu. Hotline giả định: <span data-hotline-3>090 123 4567</span>.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
