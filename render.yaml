@@ -9,8 +9,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: DB_PATH
-        value: /var/data/db.json
-    disk:
-      name: buildconnect-pilot-data
-      mountPath: /var/data
-      sizeGB: 1
+        value: data/db.runtime.json
